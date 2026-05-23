@@ -1,19 +1,33 @@
-import { Button } from "@/components/ui/button"
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { Hero } from "@/components/sections/hero";
+import { LogoCloud } from "@/components/sections/logo-cloud";
+import { Features } from "@/components/sections/features";
+import { HowItWorks } from "@/components/sections/how-it-works";
+import { Showcase } from "@/components/sections/showcase";
+import { Comparison } from "@/components/sections/comparison";
+import { Pricing } from "@/components/sections/pricing";
+import { Testimonials } from "@/components/sections/testimonials";
+import { Faq } from "@/components/sections/faq";
+import { Contact } from "@/components/sections/contact";
 
-export default function Page() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
-  )
+    <>
+      <SiteHeader />
+      <main>
+        <Hero />
+        <LogoCloud />
+        <Features />
+        <HowItWorks />
+        <Showcase />
+        <Comparison />
+        <Pricing />
+        <Testimonials />
+        <Faq />
+        <Contact />
+      </main>
+      <SiteFooter />
+    </>
+  );
 }
