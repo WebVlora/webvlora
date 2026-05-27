@@ -13,7 +13,7 @@ export function HowItWorks() {
           </>
         }
         description="Proses kami dirancang sesederhana mungkin — Anda fokus pada bisnis, kami urus semua teknisnya."
-        className="mb-10 sm:mb-14 md:mb-16"
+        className="mb-12 sm:mb-14"
       />
 
       <div className="relative">
@@ -43,7 +43,7 @@ export function HowItWorks() {
                   />
                   <div className="absolute inset-0 rounded-full bg-background ring-1 ring-border/60" />
                   <div className="relative flex size-14 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-lg shadow-primary/25">
-                    <Icon className="size-6" aria-hidden="true" />
+                    <Icon aria-hidden className="size-6" />
                   </div>
                   <span className="absolute -top-1 -right-1 flex size-7 items-center justify-center rounded-full border-2 border-background bg-foreground text-xs font-bold text-background">
                     {step.step}

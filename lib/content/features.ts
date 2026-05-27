@@ -1,39 +1,38 @@
-import type { IconType } from "react-icons";
-import { PiSparkle, PiPaintBrush, PiMagnifyingGlass, PiLightning, PiGlobe } from "react-icons/pi";
+import { Globe, Palette, Search, Sparkles, Zap, type LucideIcon } from "lucide-react";
 
 export type Feature = {
-  icon: IconType;
+  icon: LucideIcon;
   title: string;
   description: string;
 };
 
 export const features: Feature[] = [
   {
-    icon: PiSparkle,
+    icon: Sparkles,
     title: "AI Web Builder",
     description:
       "Ceritakan ide Anda dalam bahasa sehari-hari. AI kami langsung membuat draft website lengkap dalam hitungan menit.",
   },
   {
-    icon: PiPaintBrush,
+    icon: Palette,
     title: "Desain Custom",
     description:
       "Tim desainer kami menyempurnakan setiap detail visual agar sesuai dengan identitas brand Anda.",
   },
   {
-    icon: PiMagnifyingGlass,
+    icon: Search,
     title: "Optimasi SEO",
     description:
       "Setiap website dibangun dengan fondasi SEO yang kuat agar mudah ditemukan di Google dan mesin pencari lainnya.",
   },
   {
-    icon: PiLightning,
+    icon: Zap,
     title: "Performa Kencang",
     description:
       "Dioptimalkan untuk kecepatan loading di bawah 2 detik. Pengunjung tidak perlu menunggu, konversi meningkat.",
   },
   {
-    icon: PiGlobe,
+    icon: Globe,
     title: "Domain & Hosting",
     description:
       "Kami urus semua kebutuhan teknis: domain, hosting, SSL, hingga email profesional — semuanya dalam satu paket.",

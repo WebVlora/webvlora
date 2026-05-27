@@ -35,7 +35,7 @@ export function Faq() {
         className="mb-12 sm:mb-14"
       />
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-4xl lg:max-w-5xl">
         <Accordion
           type="single"
           collapsible
@@ -46,12 +46,12 @@ export function Faq() {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="border-b-0 px-4 sm:px-5 md:px-6"
+              className="border-b-0 px-5 sm:px-6 md:px-8"
             >
-              <AccordionTrigger className="py-4 text-left text-sm font-medium text-foreground hover:no-underline sm:py-5 sm:text-base">
+              <AccordionTrigger className="py-5 text-left text-base font-medium text-foreground hover:no-underline sm:py-6 sm:text-lg">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="pb-4 text-sm leading-relaxed text-muted-foreground sm:pb-5">
+              <AccordionContent className="pb-5 pr-6 text-sm leading-relaxed text-muted-foreground sm:pb-6 sm:text-base">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>

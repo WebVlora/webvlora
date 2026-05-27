@@ -1,6 +1,5 @@
-import { PiCheck, PiMinus, PiX } from "react-icons/pi";
-
 import { Section, SectionHeader } from "@/components/section";
+import { Check, Minus, X } from "lucide-react";
 import { comparisonRows } from "@/lib/content/comparison";
 import { cn } from "@/lib/utils";
 
@@ -19,27 +18,21 @@ const COLUMNS: {
 function StatusIcon({ col }: { col: ColumnKey }) {
   if (col === "webvlora") {
     return (
-      <PiCheck
-        className="size-4 text-primary"
-        aria-label="Tersedia"
-        aria-hidden="false"
-      />
+      <Check className="size-4 text-primary" aria-label="Tersedia" />
     );
   }
   if (col === "agency") {
     return (
-      <PiMinus
+      <Minus
         className="size-4 text-muted-foreground"
         aria-label="Sebagian"
-        aria-hidden="false"
       />
     );
   }
   return (
-    <PiX
+    <X
       className="size-4 text-muted-foreground/50"
       aria-label="Tidak tersedia"
-      aria-hidden="false"
     />
   );
 }

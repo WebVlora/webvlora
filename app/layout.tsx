@@ -14,6 +14,7 @@ const fontMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://webvlora.id"),
   title: {
     template: "%s | WebVlora",
     default: "WebVlora — Jasa Pembuatan Website + AI Web Builder",
@@ -30,6 +31,21 @@ export const metadata: Metadata = {
     "landing page",
     "toko online",
   ],
+  icons: {
+    icon: [
+      {
+        url: "/icon-dark.png",
+        media: "(prefers-color-scheme: light)",
+        type: "image/png",
+      },
+      {
+        url: "/icon-light.png",
+        media: "(prefers-color-scheme: dark)",
+        type: "image/png",
+      },
+    ],
+    apple: "/icon-dark.png",
+  },
   openGraph: {
     title: "WebVlora — Jasa Pembuatan Website + AI Web Builder",
     description:
@@ -38,12 +54,21 @@ export const metadata: Metadata = {
     siteName: "WebVlora",
     locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "/icon-dark.png",
+        width: 730,
+        height: 730,
+        alt: "WebVlora",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "WebVlora — Jasa Pembuatan Website + AI Web Builder",
     description:
       "Ceritakan website impian Anda. Kami bangun dalam hitungan menit dengan AI + tim desainer lokal.",
+    images: ["/icon-dark.png"],
   },
 };
 

@@ -1,6 +1,16 @@
-import { SiShopify, SiWordpress, SiNextdotjs, SiReact, SiTailwindcss, SiFigma, SiVercel, SiStripe } from "react-icons/si";
-import { Section } from "@/components/section";
+import {
+  SiFigma,
+  SiNextdotjs,
+  SiReact,
+  SiShopify,
+  SiStripe,
+  SiTailwindcss,
+  SiVercel,
+  SiWordpress,
+} from "react-icons/si";
 import type { IconType } from "react-icons";
+
+import { Section } from "@/components/section";
 
 const BRAND_LOGOS: { name: string; Icon: IconType }[] = [
   { name: "Shopify", Icon: SiShopify },

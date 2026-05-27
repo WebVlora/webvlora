@@ -1,4 +1,4 @@
-import { PiCheckCircle, PiSparkle, PiTrendUp, PiLightning } from "react-icons/pi";
+import { CircleCheck, TrendingUp, Zap, type LucideIcon } from "lucide-react";
 
 export function HeroMockup() {
   return (
@@ -41,8 +41,7 @@ export function HeroMockup() {
 
         {/* Hero block mock */}
         <div className="relative rounded-xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-6 space-y-3 overflow-hidden border border-border/40">
-          <div className="absolute top-2 right-2 flex items-center gap-1 rounded-full bg-primary/20 px-2 py-0.5 text-[8px] font-semibold text-primary">
-            <PiSparkle className="size-2" />
+          <div className="absolute top-2 right-2 rounded-full bg-primary/20 px-2 py-0.5 text-[8px] font-semibold text-primary">
             AI BUILT
           </div>
           <div className="h-3 w-1/3 rounded bg-primary/30" />
@@ -60,11 +59,13 @@ export function HeroMockup() {
 
         {/* Feature cards mock */}
         <div className="grid grid-cols-3 gap-2.5">
-          {[
-            { Icon: PiLightning, accent: "bg-chart-3/15 text-chart-3" },
-            { Icon: PiTrendUp, accent: "bg-primary/15 text-primary" },
-            { Icon: PiCheckCircle, accent: "bg-chart-2/15 text-chart-2" },
-          ].map(({ Icon, accent }, i) => (
+          {(
+            [
+              { Icon: Zap, accent: "bg-chart-3/15 text-chart-3" },
+              { Icon: TrendingUp, accent: "bg-primary/15 text-primary" },
+              { Icon: CircleCheck, accent: "bg-chart-2/15 text-chart-2" },
+            ] as { Icon: LucideIcon; accent: string }[]
+          ).map(({ Icon, accent }, i) => (
             <div
               key={i}
               className="rounded-lg border bg-background/80 p-3 space-y-2 backdrop-blur-sm"
@@ -72,7 +73,7 @@ export function HeroMockup() {
               <div
                 className={`flex size-7 items-center justify-center rounded-md ${accent}`}
               >
-                <Icon className="size-3.5" />
+                <Icon aria-hidden className="size-3.5" />
               </div>
               <div className="h-2 w-full rounded bg-foreground/12" />
               <div className="h-1.5 w-3/4 rounded bg-foreground/8" />

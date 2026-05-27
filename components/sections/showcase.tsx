@@ -1,8 +1,7 @@
 "use client";
 
-import { PiArrowUpRight } from "react-icons/pi";
-
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardFooter } from "@/components/ui/card";
+import { ArrowUpRight } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Section, SectionHeader } from "@/components/section";
 import { showcaseCategories } from "@/lib/content/showcase";
@@ -91,7 +90,7 @@ export function Showcase() {
                     <div className="absolute inset-0 flex items-center justify-center bg-foreground/0 opacity-0 transition-all duration-300 group-hover:bg-foreground/20 group-hover:opacity-100">
                       <div className="flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-medium shadow-lg">
                         Lihat Detail
-                        <PiArrowUpRight className="size-4" />
+                        <ArrowUpRight aria-hidden className="size-4" />
                       </div>
                     </div>
                   </div>
@@ -107,9 +106,9 @@ export function Showcase() {
                           {item.description}
                         </p>
                       </div>
-                      <PiArrowUpRight
+                      <ArrowUpRight
+                        aria-hidden
                         className="size-4 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
-                        aria-hidden="true"
                       />
                     </div>
                   </CardFooter>

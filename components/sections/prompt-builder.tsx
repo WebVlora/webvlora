@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { PiSparkle, PiSpinner, PiArrowRight } from "react-icons/pi";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { ArrowRight, Loader, Sparkles } from "lucide-react";
 
 const SUGGESTION_CHIPS = [
   {
@@ -90,14 +90,14 @@ export function PromptBuilder() {
             >
               {isLoading ? (
                 <>
-                  <PiSpinner className="size-4 animate-spin" aria-hidden="true" />
+                  <Loader aria-hidden className="size-4 animate-spin" />
                   Memproses...
                 </>
               ) : (
                 <>
-                  <PiSparkle className="size-4" aria-hidden="true" />
+                  <Sparkles aria-hidden className="size-4" />
                   Buatkan Sekarang
-                  <PiArrowRight className="size-4" aria-hidden="true" />
+                  <ArrowRight aria-hidden className="size-4" />
                 </>
               )}
             </Button>

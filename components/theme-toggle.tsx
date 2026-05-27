@@ -20,10 +20,12 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <Button variant="ghost" size="icon" aria-label="Ubah mode tema" disabled>
-        <Sun className="size-4" />
+        <Sun aria-hidden className="size-4" />
       </Button>
     );
   }
+
+  const Icon = theme === "dark" ? Sun : Moon;
 
   return (
     <Button
@@ -32,11 +34,7 @@ export function ThemeToggle() {
       aria-label="Ubah mode tema"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? (
-        <Sun className="size-4" />
-      ) : (
-        <Moon className="size-4" />
-      )}
+      <Icon aria-hidden className="size-4" />
     </Button>
   );
 }

@@ -1,7 +1,6 @@
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/section";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import { contact } from "@/lib/content/site";
 
 export function FinalCta() {
@@ -29,8 +28,7 @@ export function FinalCta() {
       />
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-5 text-center sm:gap-7 md:gap-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary backdrop-blur sm:px-4 sm:py-1.5 sm:text-xs">
-          <Sparkles className="size-3 sm:size-3.5" aria-hidden="true" />
+        <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary backdrop-blur sm:px-4 sm:py-1.5 sm:text-xs">
           <span>Mulai dalam 60 detik</span>
         </div>
 
@@ -51,9 +49,9 @@ export function FinalCta() {
             asChild
           >
             <a href="/ai-web-builder">
-              <Sparkles className="size-4" aria-hidden="true" />
+              <Sparkles aria-hidden className="size-4" />
               Mulai Gratis Sekarang
-              <ArrowRight className="size-4" aria-hidden="true" />
+              <ArrowRight aria-hidden className="size-4" />
             </a>
           </Button>
           <Button
@@ -63,7 +61,7 @@ export function FinalCta() {
             asChild
           >
             <a href={`mailto:${contact.email}`}>
-              <Mail className="size-4" aria-hidden="true" />
+              <Mail aria-hidden className="size-4" />
               Hubungi Tim Kami
             </a>
           </Button>

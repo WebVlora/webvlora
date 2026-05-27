@@ -1,134 +1,170 @@
 "use client";
 
-import { SiGmail, SiWhatsapp } from "react-icons/si";
-import { PiMapPin, PiClock, PiPaperPlaneRight } from "react-icons/pi";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Section, SectionHeader } from "@/components/section";
+import { Mail, MapPin, MessageCircle, Send, type LucideIcon } from "lucide-react";
 import { contact } from "@/lib/content/site";
 
-const contactInfo = [
+const contactInfo: {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href: string | null;
+}[] = [
   {
-    icon: SiGmail,
+    icon: Mail,
     label: "Email",
     value: contact.email,
     href: `mailto:${contact.email}`,
   },
   {
-    icon: SiWhatsapp,
+    icon: MessageCircle,
     label: "WhatsApp",
     value: "+62 812-3456-7890",
     href: contact.whatsapp,
   },
   {
-    icon: PiMapPin,
+    icon: MapPin,
     label: "Lokasi",
     value: "Jakarta, Indonesia",
-    href: null,
-  },
-  {
-    icon: PiClock,
-    label: "Jam Kerja",
-    value: "Sen - Jum, 09:00 - 18:00",
     href: null,
   },
 ];
 
 export function Contact() {
   return (
-    <Section id="kontak" size="lg" className="bg-muted/30">
+    <Section id="kontak" className="bg-muted/30">
       <SectionHeader
         eyebrow="Kontak"
         title="Hubungi Kami"
-        description="Punya pertanyaan atau ingin konsultasi gratis? Tim kami siap membantu Anda."
-        className="mb-10 sm:mb-14 md:mb-16"
+        description="Punya pertanyaan atau ingin konsultasi gratis? Tim kami siap membantu."
+        className="mb-12 sm:mb-14"
       />
 
-      <div className="grid gap-8 lg:grid-cols-5 lg:gap-12">
-        {/* Contact Info Cards */}
-        <div className="flex flex-col gap-3 lg:col-span-2">
-          {contactInfo.map((item) => (
-            <Card
-              key={item.label}
-              className="border-border/60 bg-card/80 backdrop-blur-sm"
-            >
-              <CardContent className="flex items-center gap-3 p-3 sm:p-4">
-                <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <item.icon className="size-4" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {item.label}
-                  </span>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <span className="text-sm font-semibold text-foreground">
-                      {item.value}
-                    </span>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+        <div className="grid lg:grid-cols-5">
+          {/* Info panel */}
+          <aside className="relative flex flex-col gap-6 border-b border-border/60 bg-muted/40 p-6 sm:p-8 lg:col-span-2 lg:border-b-0 lg:border-r">
+            <div>
+              <h3 className="text-lg font-semibold text-foreground">
+                Mari mulai obrolan
+              </h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                Balasan tercepat lewat WhatsApp pada jam kerja. Untuk
+                permintaan formal, kirim email kapan saja.
+              </p>
+            </div>
 
-        {/* Contact Form Card */}
-        <Card className="border-border/60 bg-card/80 backdrop-blur-sm lg:col-span-3">
-          <CardHeader>
-            <h3 className="text-lg font-semibold text-foreground sm:text-xl">
-              Kirim Pesan
-            </h3>
-          </CardHeader>
-          <CardContent>
-            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+            <ul className="flex flex-col gap-1">
+              {contactInfo.map((item) => {
+                const content = (
+                  <>
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <item.icon aria-hidden className="size-4" />
+                    </span>
+                    <span className="flex min-w-0 flex-col">
+                      <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+                        {item.label}
+                      </span>
+                      <span className="truncate text-sm font-semibold text-foreground">
+                        {item.value}
+                      </span>
+                    </span>
+                  </>
+                );
+
+                return (
+                  <li key={item.label}>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="group flex items-center gap-3 rounded-lg px-2 py-2 -mx-2 transition-colors hover:bg-background/60"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-3 px-2 py-2 -mx-2">
+                        {content}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </aside>
+
+          {/* Form panel */}
+          <div className="lg:col-span-3">
+            <form
+              className="flex flex-col gap-4 p-6 sm:p-8"
+              onSubmit={(e) => e.preventDefault()}
+            >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="name"
+                    className="text-xs font-medium text-foreground"
+                  >
                     Nama
                   </label>
-                  <Input id="name" placeholder="Nama lengkap" />
+                  <Input id="name" placeholder="Nama lengkap" className="h-10" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="email"
+                    className="text-xs font-medium text-foreground"
+                  >
                     Email
                   </label>
-                  <Input id="email" type="email" placeholder="email@contoh.com" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="email@contoh.com"
+                    className="h-10"
+                  />
                 </div>
               </div>
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                <label
+                  htmlFor="subject"
+                  className="text-xs font-medium text-foreground"
+                >
                   Subjek
                 </label>
-                <Input id="subject" placeholder="Apa yang bisa kami bantu?" />
+                <Input
+                  id="subject"
+                  placeholder="Apa yang bisa kami bantu?"
+                  className="h-10"
+                />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
+                <label
+                  htmlFor="message"
+                  className="text-xs font-medium text-foreground"
+                >
                   Pesan
                 </label>
                 <Textarea
                   id="message"
                   placeholder="Ceritakan kebutuhan website Anda..."
                   rows={4}
+                  className="min-h-28"
                 />
               </div>
-              <CardFooter className="border-t-0 bg-transparent px-0 pt-2">
-                <Button type="submit" size="lg" className="w-full sm:w-auto">
-                  <PiPaperPlaneRight className="size-4" aria-hidden="true" />
+              <div className="flex items-center justify-between gap-3 pt-1">
+                <p className="text-xs text-muted-foreground">
+                  Kami balas dalam 1×24 jam.
+                </p>
+                <Button type="submit" size="default">
+                  <Send aria-hidden className="size-4" />
                   Kirim Pesan
                 </Button>
-              </CardFooter>
+              </div>
             </form>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </Section>
   );
